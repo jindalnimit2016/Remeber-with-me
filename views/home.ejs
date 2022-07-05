@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <title>
+        <%=title %>
+    </title>
+</head>
+
+<body>
+    <div>
+        <h1>To Do App</h1>
+
+        <!-- make form to add task -->
+        <form>
+            <table>
+                <thread>
+                    <tr>
+                        <th>Add task</th>
+                        <th>Category</th>
+                        <th>Date</th>
+
+                    </tr>
+                </thread>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" name="description" placeholder="what i can remeind you?" required>
+                        </td>
+                        <td>
+                            <select name="category" required>
+
+                                <option>Personal</option>
+                                <option>School</option>
+                                <option>Work Outside</option>
+                                <option>Home Cleaning</option>
+                                <option>Other</option>
+                            </select></td>
+                        <td>
+                            <input type="date" name="date" required>
+                        </td>
+                        <td>
+                            <input type="submit" class="submit-button" id="add" value="Add Task">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+    <div>
+        <h1>Task List</h1>
+
+        <form action="" method="GET">
+            <table>
+                <thread>
+                    <tr>
+                        <th>Select</th>
+                        <th>Task</th>
+                        <th>Category</th>
+                        <th>Due date</th>
+                    </tr>
+                </thread>
+                <% for(let i of task){ %>
+                    <tr>
+
+                        <td>
+                            <input type="checkbox" name="<%= i._id%>"></td>
+                        <td>
+                            <p id="task-description">
+                                <%= i.description %>
+                        </td>
+                        <td>
+                            <p id="task-category"></p>:
+                            <%= i.category %>
+                        </td>
+                        <td>
+                            <p id="due-date">:
+                                <%= i.date %>
+                            </p>
+                        </td>
+                    </tr>
+                    <% } %>
+            </table>
+            <div><input type="submit" class="delete-buuton" value="Delete ask"></div>
+        </form>
+    </div>
+</body>
+
+</html>
