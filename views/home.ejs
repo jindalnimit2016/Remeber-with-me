@@ -11,22 +11,23 @@
         <h1>To Do App</h1>
 
         <!-- make form to add task -->
-        <form>
-            <table>
-                <thread>
-                    <tr>
+        <form action="/create-task" method="POST">
+            <table class="table">
+                <thead>
+                    <tr class="table-active">
                         <th>Add task</th>
-                        <th>Category</th>
-                        <th>Date</th>
-
+                        <th>category</th>
+                        <th>date</th>
+                        <th></th>
                     </tr>
-                </thread>
+                </thead>
 
                 <tbody>
                     <tr>
-                        <td>
+                        <th>
                             <input type="text" name="description" placeholder="what i can remeind you?" required>
-                        </td>
+
+                        </th>
                         <td>
                             <select name="category" required>
 
@@ -51,24 +52,25 @@
     <div>
         <h1>Task List</h1>
 
-        <form action="" method="GET">
-            <table>
-                <thread>
+        <form action="/delete-task" method="GET">
+            <table class="table">
+                <thead>
                     <tr>
                         <th>Select</th>
                         <th>Task</th>
                         <th>Category</th>
-                        <th>Due date</th>
+                        <th>due date</th>
                     </tr>
-                </thread>
+                </thead>
                 <% for(let i of task){ %>
                     <tr>
 
                         <td>
-                            <input type="checkbox" name="<%= i._id%>"></td>
+                            <input type="checkbox" name="<%= i._id %>"></td>
                         <td>
                             <p id="task-description">
                                 <%= i.description %>
+                            </p>
                         </td>
                         <td>
                             <p id="task-category"></p>:
@@ -82,7 +84,7 @@
                     </tr>
                     <% } %>
             </table>
-            <div><input type="submit" class="delete-buuton" value="Delete ask"></div>
+            <div><input type="submit" class="delete-button" value="Delete Task"></div>
         </form>
     </div>
 </body>
